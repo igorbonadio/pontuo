@@ -28,8 +28,17 @@ var app = {
   },
 
   clear: function(e) {
-    app.lastId = 0;
-    $(".app").html("");
+    navigator.notification.confirm(
+      'Are you sure?!',
+       function(result) {
+        if (result === 1) {
+          app.lastId = 0;
+          $(".app").html("");
+        }
+       },
+      'Clear',
+      'Yes, No'
+    );
   },
 
   add: function(e) {
