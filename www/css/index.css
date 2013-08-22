@@ -35,8 +35,22 @@ header a {
   width: 130px;
   height: 130px;
   margin: 10px;
-  background-color: #123456;
+  background-color: #06A2CB;
   float: left;
+}
+
+.tile h1 {
+  margin: 0;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 55px;
+}
+
+.tile h2 {
+  margin: 0;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 20px;
 }
 
 .pull-left {

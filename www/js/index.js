@@ -33,9 +33,21 @@ var app = {
   },
 
   add: function(e) {
-    app.lastId = app.lastId + 1;
-    $(".app").prepend('<div class="tile" id="tile-' + app.lastId + '"></div>');
-    var color = app.colorSchema[Math.floor(Math.random()*app.colorSchema.length)];
-    $("#tile-" + app.lastId).css("background-color", color)
+    navigator.notification.prompt(
+        "Please enter user's name",
+        app.createTile,
+        'Registration',
+        ['Ok','Cancel'],
+        'Player'
+    );
+  },
+
+  createTile: function(result) {
+    if (result.buttonIndex === 1) {
+      app.lastId = app.lastId + 1;
+      $(".app").prepend('<div class="tile" id="tile-' + app.lastId + '"><h1>0</h1><h2>' + result.input1 + '</h2></div>');
+      var color = app.colorSchema[Math.floor(Math.random()*app.colorSchema.length)];
+      $("#tile-" + app.lastId).css("background-color", color)
+    }
   },
 };
