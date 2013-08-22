@@ -16,7 +16,7 @@ var app = {
   },
 
   onDeviceReady: function() {
-    
+    navigator.splashscreen.hide();
   },
 
   resizeTiles: function(minSize, borderSize) {
