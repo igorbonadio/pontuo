@@ -13,7 +13,6 @@ var app = {
     });
     $("#clear").on("click", this.clear);
     $("#add").on("click", this.add);
-    // $("#tile-10").on("click", this.scoreUp);
   },
 
   onDeviceReady: function() {
@@ -49,12 +48,21 @@ var app = {
       $(".app").prepend('<div class="tile" id="tile-' + app.lastId + '"><h1>0</h1><h2>' + result.input1 + '</h2></div>');
       var color = app.colorSchema[Math.floor(Math.random()*app.colorSchema.length)];
       $("#tile-" + app.lastId).css("background-color", color)
-      $("#tile-" + app.lastId).on("click", app.scoreUp);
+
+      var xorhandler = xorTap(app.scoreUp, app.scoreDown);
+      var tile = $("#tile-" + app.lastId).get(0);
+      tile.addEventListener(('ontouchend' in tile) ? 'touchend' : 'mouseup', doubleTap(300), false);
+      tile.addEventListener('tap', xorhandler, false);
     }
   },
 
   scoreUp: function(e) {
     var points = parseInt($(this).find("h1").html());
     $(this).find("h1").html(points + 1);
+  },
+
+  scoreDown: function(e) {
+    var points = parseInt($(this).find("h1").html());
+    $(this).find("h1").html(points - 1);
   },
 };
