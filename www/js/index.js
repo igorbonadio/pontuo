@@ -2,7 +2,7 @@ var app = {
   // Application Constructor
   initialize: function() {
     this.lastId = 0;
-    this.colorSchema = ["#DD1E2F", "#EBB035", "#06A2CB", "#218559", "#D0C6B1", "#192823", "#D4E7ED", "#EB8540", "#B06A3B", "#AB988B"]
+    this.colorSchema = ["#DD1E2F", "#EBB035", "#06A2CB", "#218559", "#D0C6B1", "#D4E7ED", "#EB8540", "#B06A3B", "#AB988B"]
     this.bindEvents();
   },
 
@@ -16,7 +16,7 @@ var app = {
   },
 
   onDeviceReady: function() {
-    $(window).trigger("resize")
+    
   },
 
   resizeTiles: function(minSize, borderSize) {
@@ -62,6 +62,8 @@ var app = {
       var tile = $("#tile-" + app.lastId).get(0);
       tile.addEventListener(('ontouchend' in tile) ? 'touchend' : 'mouseup', doubleTap(300), false);
       tile.addEventListener('tap', xorhandler, false);
+
+      $(window).trigger("resize")
     }
   },
 
