@@ -11,6 +11,7 @@ var app = {
     $(window).resize(function(){
       app.resizeTiles(130, 10);
     });
+    $("#zero").on("click", this.zero);
     $("#clear").on("click", this.clear);
     $("#add").on("click", this.add);
   },
@@ -40,6 +41,20 @@ var app = {
       'Yes, No'
     );
   },
+
+  zero: function(e) {
+    navigator.notification.confirm(
+      'Are you sure?!',
+       function(result) {
+        if (result === 1) {
+          $(".app").find("h1").html(0);
+        }
+       },
+      'Zero',
+      'Yes, No'
+    );
+  },
+
 
   add: function(e) {
     navigator.notification.prompt(
