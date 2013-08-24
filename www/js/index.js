@@ -2,7 +2,7 @@ var app = {
   // Application Constructor
   initialize: function() {
     this.lastId = 0;
-    this.colorSchema = ["#DD1E2F", "#EBB035", "#06A2CB", "#218559", "#D0C6B1", "#D4E7ED", "#EB8540", "#B06A3B", "#AB988B"]
+    this.colorSchema = ["#DD1E2F", "#EBB035", "#06A2CB", "#218559", "#D0C6B1", "#D4E7ED", "#EB8540", "#B06A3B", "#AB988B"];
     this.bindEvents();
   },
 
